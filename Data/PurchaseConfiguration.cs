@@ -7,6 +7,7 @@ namespace aspnetcore_event_driven.Data
     {
         public void Configure(EntityTypeBuilder<Purchase> builder)
         {
+            builder.Ignore(p => p.DomainEvents);
             builder.HasKey(p => p.Id);
             builder.HasOne(p => p.Product).WithMany(p => p.Purchases).HasForeignKey(p => p.ProductId);
         }

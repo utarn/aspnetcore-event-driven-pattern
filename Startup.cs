@@ -38,6 +38,7 @@ namespace aspnetcore_event_driven
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddMediatR(Assembly.GetExecutingAssembly());
+            services.AddScoped<IDomainEventService, DomainEventService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
